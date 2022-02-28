@@ -2,10 +2,13 @@ var highScore = document.querySelector("#highScore");
 var clear = document.querySelector("#reset");
 var backButton = document.querySelector("#Back");
 
-clear.addEventListener("click", function () {
-    localStorage.clear();
-    location.reload();
-});
+
+if (secondsLeft >= 0) {
+    var timeRemaining = secondsLeft;
+
+    clearInterval(holdInterval);
+    createP.textContent = "Your final score is: " + timeRemaining;
+}
 
 var allScores = localStorage.getItem("allScores");
 allScores = JSON.parse(allScores);
@@ -13,6 +16,15 @@ allScores = JSON.parse(allScores);
 backButton.addEventListener("click", function () {
     window.location.replace("./index.html");
 });
+var createLabel = document.createElement("label");
+  createLabel.setAttribute("id", "createLabel");
+  createLabel.textContent = "Enter your initials: ";
+  questionsDiv.appendChild(createLabel);
+  var createInput = document.createElement("input");
+  createInput.setAttribute("type", "text");
+  createInput.setAttribute("id", "initials");
+  createInput.textContent = "";
+  questionsDiv.appendChild(createInput);
 
 var createSubmit = document.createElement("button");
   createSubmit.setAttribute("type", "submit");
