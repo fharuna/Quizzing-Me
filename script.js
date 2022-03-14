@@ -254,15 +254,15 @@ ChoiceD.addEventListener('click', function(event) {
         function go_home(){	
                 document.getElementById("high_scores_page").style.display= "none";
                 document.getElementById("homeContainer").style.display= "block";
-                clear_up();
+        
         }
         
         // clear the highscore
         function clear_hs(){
             high_scores = [];
-            function clear_up(){
           }
         
+        function clear_up(){
     
         time=75;
         time_remaining=true;
